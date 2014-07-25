@@ -1,12 +1,11 @@
 package sb.wd.test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
+import static org.testng.AssertJUnit.assertEquals;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,8 +17,8 @@ public class NavigateAllCategoriesTestCase {
 	 private StringBuffer verificationErrors = new StringBuffer();
 	 private String selectedOption;
 	
-	 @Before
-	 public void setUp() throws Exception {
+	 @BeforeMethod
+	public void setUp() throws Exception {
 		 driver = new FirefoxDriver();
 		 baseUrl = "http://qatraining.avantica.avanticatec.net/";
 		 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -71,12 +70,12 @@ public class NavigateAllCategoriesTestCase {
 	    
 	}
 	
-	@After
+	@AfterMethod
 	public void tearDown() throws Exception {
 		driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
-			  fail(verificationErrorString);
+			  Assert.fail(verificationErrorString);
 		}
 	}
 }
