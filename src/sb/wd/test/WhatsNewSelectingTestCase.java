@@ -1,3 +1,5 @@
+package sb.wd.test;
+
 import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;

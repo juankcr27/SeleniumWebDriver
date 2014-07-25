@@ -1,3 +1,6 @@
+package sb.wd.test;
+
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
@@ -10,10 +13,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class SearchSectionTestCase {
+public class BrowseAllCategoriesAndResearchTestCase {
   private WebDriver driver;
-  private String baseUrl; 
+  private String baseUrl;  
   private StringBuffer verificationErrors = new StringBuffer();
+  private String bodyText;
 
   @Before
   public void setUp() throws Exception {
@@ -23,13 +27,15 @@ public class SearchSectionTestCase {
   }
 
   @Test
-  public void testSearchSectionTestCase() throws Exception {
+  public void testBrowseAllCategoriesAndResearchTestCase() throws Exception {
     driver.get(baseUrl + "/QATestWeb/");
-    driver.findElement(By.id("ctl00_SecondBar_CommonSearchTextBox")).clear();
-    driver.findElement(By.id("ctl00_SecondBar_CommonSearchTextBox")).sendKeys("Arts");
-    driver.findElement(By.id("ctl00_SecondBar_CommonSearchButton")).click();
-    new Select(driver.findElement(By.id("ctl00_Main_CategoryDropDown_CategoryList"))).selectByVisibleText("Arts & Crafts");
+    driver.findElement(By.id("ctl00_BrowseAllLink")).click();
+    driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).clear();
+    driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).sendKeys("Rock");
+    new Select(driver.findElement(By.id("ctl00_Main_CategoryDropDown_CategoryList"))).selectByVisibleText("Music");
     driver.findElement(By.id("ctl00_Main_SearchButton")).click();
+    bodyText = driver.findElement(By.tagName("body")).getText();
+    assertTrue(bodyText.contains("search term = \"Rock\""));    
   }
 
   @After
@@ -40,5 +46,5 @@ public class SearchSectionTestCase {
       fail(verificationErrorString);
     }
   }
-
+  
 }

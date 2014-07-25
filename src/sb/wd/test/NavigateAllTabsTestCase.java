@@ -1,3 +1,4 @@
+package sb.wd.test;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -10,9 +11,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class NavigateFooterLinksTestCase {
+public class NavigateAllTabsTestCase {
   private WebDriver driver;
-  private String baseUrl;
+  private String baseUrl;  
   private StringBuffer verificationErrors = new StringBuffer();
   private String bodyText;
   private boolean elementPresent;
@@ -25,7 +26,7 @@ public class NavigateFooterLinksTestCase {
   }
 
   @Test
-  public void testNavigateFooterLinksTestCase() throws Exception {
+  public void testNavigateAllTabs() throws Exception {
     driver.get(baseUrl + "/QATestWeb/");
     driver.findElement(By.id("ctl00_LoginView_LoginLink")).click();
     driver.findElement(By.id("ctl00_Main_LoginConrol_UserName")).clear();
@@ -33,16 +34,16 @@ public class NavigateFooterLinksTestCase {
     driver.findElement(By.id("ctl00_Main_LoginConrol_Password")).clear();
     driver.findElement(By.id("ctl00_Main_LoginConrol_Password")).sendKeys("#spirit123");
     driver.findElement(By.id("ctl00_Main_LoginConrol_LoginButton")).click();
-    driver.findElement(By.cssSelector("#ctl00_FooterMenun1 > table > tbody > tr > td > a.ctl00_FooterMenu_1")).click();    
+    driver.findElement(By.cssSelector("#ctl00_TopMenuRepeater_ctl01_MenuLink > span")).click();    
     bodyText = driver.findElement(By.tagName("body")).getText();
-    assertTrue(bodyText.contains("Post an Ad: Category Selection"));
-    driver.findElement(By.cssSelector("a.ctl00_FooterMenu_1")).click();
+    assertTrue(bodyText.contains("Post an Ad: Category Selection"));  
+    driver.findElement(By.cssSelector("span")).click();    
     elementPresent = driver.findElement(By.id("ctl00_SecondBar_CommonSearchTextBox")).isDisplayed();
-    assertTrue(elementPresent);
-    driver.findElement(By.cssSelector("#ctl00_FooterMenun2 > table > tbody > tr > td > a.ctl00_FooterMenu_1")).click();
+    assertTrue(elementPresent);    
+    driver.findElement(By.cssSelector("#ctl00_TopMenuRepeater_ctl02_MenuLink > span")).click();    
     bodyText = driver.findElement(By.tagName("body")).getText();
-    assertTrue(bodyText.contains("My Current Ads"));    
-    driver.findElement(By.cssSelector("a.ctl00_FooterMenu_1")).click();
+    assertTrue(bodyText.contains("My Current Ads"));  
+    driver.findElement(By.cssSelector("span")).click();    
     elementPresent = driver.findElement(By.id("ctl00_SecondBar_CommonSearchTextBox")).isDisplayed();
     assertTrue(elementPresent);
   }
@@ -54,5 +55,6 @@ public class NavigateFooterLinksTestCase {
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
     }
-  }  
+  }
+  
 }

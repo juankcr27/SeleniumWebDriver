@@ -1,5 +1,5 @@
-
-import static org.junit.Assert.assertTrue;
+package sb.wd.test;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
@@ -10,13 +10,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class BrowseAllCategoriesAndResearchTestCase {
+public class GoToAvanticaPageCopyrightTestCase {
   private WebDriver driver;
   private String baseUrl;  
   private StringBuffer verificationErrors = new StringBuffer();
-  private String bodyText;
+  private String parentHandle;
 
   @Before
   public void setUp() throws Exception {
@@ -26,15 +25,18 @@ public class BrowseAllCategoriesAndResearchTestCase {
   }
 
   @Test
-  public void testBrowseAllCategoriesAndResearchTestCase() throws Exception {
-    driver.get(baseUrl + "/QATestWeb/");
-    driver.findElement(By.id("ctl00_BrowseAllLink")).click();
-    driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).clear();
-    driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).sendKeys("Rock");
-    new Select(driver.findElement(By.id("ctl00_Main_CategoryDropDown_CategoryList"))).selectByVisibleText("Music");
-    driver.findElement(By.id("ctl00_Main_SearchButton")).click();
-    bodyText = driver.findElement(By.tagName("body")).getText();
-    assertTrue(bodyText.contains("search term = \"Rock\""));    
+  public void testGoToAvanticaPageCopyrightTestCase() throws Exception {
+    driver.get(baseUrl + "/QATestWeb/");    
+    parentHandle = driver.getWindowHandle(); // get the current window handle
+    driver.findElement(By.xpath("//*[@id='ctl00_Avantica']")).click(); // click some link that opens a new window
+
+    for (String winHandle : driver.getWindowHandles()) {
+        driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle
+    }
+    
+    assertEquals("Avantica - Avantica Technologies", driver.getTitle());
+    driver.close(); // close newly opened window when done with it
+    driver.switchTo().window(parentHandle); 
   }
 
   @After
@@ -45,5 +47,6 @@ public class BrowseAllCategoriesAndResearchTestCase {
       fail(verificationErrorString);
     }
   }
+
   
 }

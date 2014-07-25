@@ -1,4 +1,5 @@
-import static org.junit.Assert.assertEquals;
+package sb.wd.test;
+
 import static org.junit.Assert.fail;
 
 import java.util.concurrent.TimeUnit;
@@ -9,12 +10,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class GoToAvanticaPageCopyrightTestCase {
+public class SearchSectionTestCase {
   private WebDriver driver;
-  private String baseUrl;  
+  private String baseUrl; 
   private StringBuffer verificationErrors = new StringBuffer();
-  private String parentHandle;
 
   @Before
   public void setUp() throws Exception {
@@ -24,18 +25,13 @@ public class GoToAvanticaPageCopyrightTestCase {
   }
 
   @Test
-  public void testGoToAvanticaPageCopyrightTestCase() throws Exception {
-    driver.get(baseUrl + "/QATestWeb/");    
-    parentHandle = driver.getWindowHandle(); // get the current window handle
-    driver.findElement(By.xpath("//*[@id='ctl00_Avantica']")).click(); // click some link that opens a new window
-
-    for (String winHandle : driver.getWindowHandles()) {
-        driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle
-    }
-    
-    assertEquals("Avantica - Avantica Technologies", driver.getTitle());
-    driver.close(); // close newly opened window when done with it
-    driver.switchTo().window(parentHandle); 
+  public void testSearchSectionTestCase() throws Exception {
+    driver.get(baseUrl + "/QATestWeb/");
+    driver.findElement(By.id("ctl00_SecondBar_CommonSearchTextBox")).clear();
+    driver.findElement(By.id("ctl00_SecondBar_CommonSearchTextBox")).sendKeys("Arts");
+    driver.findElement(By.id("ctl00_SecondBar_CommonSearchButton")).click();
+    new Select(driver.findElement(By.id("ctl00_Main_CategoryDropDown_CategoryList"))).selectByVisibleText("Arts & Crafts");
+    driver.findElement(By.id("ctl00_Main_SearchButton")).click();
   }
 
   @After
@@ -47,5 +43,4 @@ public class GoToAvanticaPageCopyrightTestCase {
     }
   }
 
-  
 }
