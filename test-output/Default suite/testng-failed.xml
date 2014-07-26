@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="sb.wd.test.SearchSectionNGTestCase">
+      <class name="sb.wd.test.NavigateAllTabsTestCase">
         <methods>
-          <include name="attachScreenshotListener"/>
-          <include name="selectDefaultWindow"/>
-          <include name="testSearchSectionNGTestCase"/>
-          <include name="setUp"/>
           <include name="tearDown"/>
+          <include name="testNavigateAllTabs" invocation-numbers="0"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- sb.wd.test.SearchSectionNGTestCase -->
+      </class> <!-- sb.wd.test.NavigateAllTabsTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
