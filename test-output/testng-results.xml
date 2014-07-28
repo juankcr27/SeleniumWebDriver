@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="8" passed="8">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="35955" started-at="2014-07-26T15:13:56Z" finished-at="2014-07-26T15:14:32Z">
+  <suite name="Suite" duration-ms="24980" started-at="2014-07-28T15:26:12Z" finished-at="2014-07-28T15:26:37Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="35955" started-at="2014-07-26T15:13:56Z" finished-at="2014-07-26T15:14:32Z">
-      <class name="sb.wd.test.NavigateAllTabsTestCase">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.NavigateAllTabsTestCase@275f1c40]" name="setUp" is-config="true" duration-ms="4565" started-at="2014-07-26T09:13:57Z" finished-at="2014-07-26T09:14:02Z">
+    <test name="Test" duration-ms="24980" started-at="2014-07-28T15:26:12Z" finished-at="2014-07-28T15:26:37Z">
+      <class name="sb.wd.test.WhatsNewSelectingTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.WhatsNewSelectingTestCase@7074a393]" name="setUp" is-config="true" duration-ms="7710" started-at="2014-07-28T09:26:28Z" finished-at="2014-07-28T09:26:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="testNavigateAllTabs(java.lang.String, java.lang.String)[pri:0, instance:sb.wd.test.NavigateAllTabsTestCase@275f1c40]" name="testNavigateAllTabs" duration-ms="30617" started-at="2014-07-26T09:14:02Z" data-provider="Authentication" finished-at="2014-07-26T09:14:32Z">
+        <test-method status="PASS" signature="testWhatsNewSelectingTestCase()[pri:0, instance:sb.wd.test.WhatsNewSelectingTestCase@7074a393]" name="testWhatsNewSelectingTestCase" duration-ms="1293" started-at="2014-07-28T09:26:36Z" finished-at="2014-07-28T09:26:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWhatsNewSelectingTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.WhatsNewSelectingTestCase@7074a393]" name="tearDown" is-config="true" duration-ms="170" started-at="2014-07-28T09:26:37Z" finished-at="2014-07-28T09:26:37Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sb.wd.test.WhatsNewSelectingTestCase -->
+      <class name="sb.wd.test.NavigateAllTabsTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.NavigateAllTabsTestCase@468a169f]" name="setUp" is-config="true" duration-ms="5771" started-at="2014-07-28T09:26:23Z" finished-at="2014-07-28T09:26:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testNavigateAllTabs(java.lang.String, java.lang.String)[pri:0, instance:sb.wd.test.NavigateAllTabsTestCase@468a169f]" name="testNavigateAllTabs" duration-ms="3841" started-at="2014-07-28T09:26:28Z" data-provider="Authentication" finished-at="2014-07-28T09:26:32Z">
           <params>
             <param index="0">
               <value>
@@ -24,79 +38,122 @@
               </value>
             </param>
           </params>
-          <exception class="org.openqa.selenium.NoSuchElementException">
-            <message>
-              <![CDATA[Unable to locate element: {"method":"id","selector":"ctl00_LoginView_LoginLink"}
-Command duration or timeout: 30.07 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.42.2', revision: '6a6995d', time: '2014-06-03 17:42:30'
-System info: host: 'JuanCarlosArce', ip: '192.168.43.86', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.7.0_25'
-Session ID: a3b2dba3-dfeb-4195-bd1d-5813da02dda3
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, browserConnectionEnabled=true, webStorageEnabled=true, nativeEvents=false, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=30.0}]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: {"method":"id","selector":"ctl00_LoginView_LoginLink"}
-Command duration or timeout: 30.07 seconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '2.42.2', revision: '6a6995d', time: '2014-06-03 17:42:30'
-System info: host: 'JuanCarlosArce', ip: '192.168.43.86', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.7.0_25'
-Session ID: a3b2dba3-dfeb-4195-bd1d-5813da02dda3
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{platform=XP, acceptSslCerts=true, javascriptEnabled=true, cssSelectorsEnabled=true, databaseEnabled=true, browserName=firefox, handlesAlerts=true, browserConnectionEnabled=true, webStorageEnabled=true, nativeEvents=false, rotatable=false, locationContextEnabled=true, applicationCacheEnabled=true, takesScreenshot=true, version=30.0}]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:393)
-	at org.openqa.selenium.By$ById.findElement(By.java:214)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-	at sb.wd.test.NavigateAllTabsTestCase.testNavigateAllTabs(NavigateAllTabsTestCase.java:38)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
-Caused by: org.openqa.selenium.remote.ErrorHandler$UnknownServerException: Unable to locate element: {"method":"id","selector":"ctl00_LoginView_LoginLink"}
-Build info: version: '2.42.2', revision: '6a6995d', time: '2014-06-03 17:42:30'
-System info: host: 'JuanCarlosArce', ip: '192.168.43.86', os.name: 'Windows 8', os.arch: 'amd64', os.version: '6.2', java.version: '1.7.0_25'
-Driver info: driver.version: unknown
-	at <anonymous class>.FirefoxDriver.prototype.findElementInternal_(file:///C:/Users/JUANCA~1/AppData/Local/Temp/anonymous2604062232009378517webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:9470:7)
-	at <anonymous class>.fxdriver.Timer.prototype.setTimeout/<.notify(file:///C:/Users/JUANCA~1/AppData/Local/Temp/anonymous2604062232009378517webdriver-profile/extensions/fxdriver@googlecode.com/components/driver_component.js:407:5)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testNavigateAllTabs -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.NavigateAllTabsTestCase@275f1c40]" name="tearDown" is-config="true" duration-ms="148" started-at="2014-07-26T09:14:32Z" finished-at="2014-07-26T09:14:32Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.NavigateAllTabsTestCase@468a169f]" name="tearDown" is-config="true" duration-ms="197" started-at="2014-07-28T09:26:32Z" finished-at="2014-07-28T09:26:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- sb.wd.test.NavigateAllTabsTestCase -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="sb.wd.test.NavigateFooterLinksTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.NavigateFooterLinksTestCase@13d344e7]" name="setUp" is-config="true" duration-ms="8066" started-at="2014-07-28T09:26:23Z" finished-at="2014-07-28T09:26:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testNavigateFooterLinksTestCase(java.lang.String, java.lang.String)[pri:0, instance:sb.wd.test.NavigateFooterLinksTestCase@13d344e7]" name="testNavigateFooterLinksTestCase" duration-ms="3568" started-at="2014-07-28T09:26:31Z" data-provider="Authentication" finished-at="2014-07-28T09:26:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SpiritBreakerTeam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[#spirit123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavigateFooterLinksTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.NavigateFooterLinksTestCase@13d344e7]" name="tearDown" is-config="true" duration-ms="167" started-at="2014-07-28T09:26:34Z" finished-at="2014-07-28T09:26:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sb.wd.test.NavigateFooterLinksTestCase -->
+      <class name="sb.wd.test.BrowseAllCategoriesAndResearchTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.BrowseAllCategoriesAndResearchTestCase@799f4192]" name="setUp" is-config="true" duration-ms="13035" started-at="2014-07-28T09:26:12Z" finished-at="2014-07-28T09:26:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testBrowseAllCategoriesAndResearchTestCase()[pri:0, instance:sb.wd.test.BrowseAllCategoriesAndResearchTestCase@799f4192]" name="testBrowseAllCategoriesAndResearchTestCase" duration-ms="1993" started-at="2014-07-28T09:26:25Z" finished-at="2014-07-28T09:26:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testBrowseAllCategoriesAndResearchTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.BrowseAllCategoriesAndResearchTestCase@799f4192]" name="tearDown" is-config="true" duration-ms="192" started-at="2014-07-28T09:26:27Z" finished-at="2014-07-28T09:26:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sb.wd.test.BrowseAllCategoriesAndResearchTestCase -->
+      <class name="sb.wd.test.NavigateAllCategoriesTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.NavigateAllCategoriesTestCase@1335ca6c]" name="setUp" is-config="true" duration-ms="2960" started-at="2014-07-28T09:26:12Z" finished-at="2014-07-28T09:26:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testNavigateAllCategoriesTestCase()[pri:0, instance:sb.wd.test.NavigateAllCategoriesTestCase@1335ca6c]" name="testNavigateAllCategoriesTestCase" duration-ms="6837" started-at="2014-07-28T09:26:15Z" finished-at="2014-07-28T09:26:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testNavigateAllCategoriesTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.NavigateAllCategoriesTestCase@1335ca6c]" name="tearDown" is-config="true" duration-ms="383" started-at="2014-07-28T09:26:22Z" finished-at="2014-07-28T09:26:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sb.wd.test.NavigateAllCategoriesTestCase -->
+      <class name="sb.wd.test.CompleteFlowTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.CompleteFlowTestCase@fc3d7e7]" name="setUp" is-config="true" duration-ms="9282" started-at="2014-07-28T09:26:13Z" finished-at="2014-07-28T09:26:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testCompleteFlowTestCase(java.lang.String, java.lang.String)[pri:0, instance:sb.wd.test.CompleteFlowTestCase@fc3d7e7]" name="testCompleteFlowTestCase" duration-ms="5599" started-at="2014-07-28T09:26:22Z" data-provider="Authentication" finished-at="2014-07-28T09:26:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SpiritBreakerTeam]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[#spirit123]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCompleteFlowTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.CompleteFlowTestCase@fc3d7e7]" name="tearDown" is-config="true" duration-ms="233" started-at="2014-07-28T09:26:28Z" finished-at="2014-07-28T09:26:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sb.wd.test.CompleteFlowTestCase -->
+      <class name="sb.wd.test.GoToAvanticaPageCopyrightTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.GoToAvanticaPageCopyrightTestCase@307c824e]" name="setUp" is-config="true" duration-ms="7123" started-at="2014-07-28T09:26:12Z" finished-at="2014-07-28T09:26:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testGoToAvanticaPageCopyrightTestCase()[pri:0, instance:sb.wd.test.GoToAvanticaPageCopyrightTestCase@307c824e]" name="testGoToAvanticaPageCopyrightTestCase" duration-ms="2803" started-at="2014-07-28T09:26:20Z" finished-at="2014-07-28T09:26:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGoToAvanticaPageCopyrightTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.GoToAvanticaPageCopyrightTestCase@307c824e]" name="tearDown" is-config="true" duration-ms="264" started-at="2014-07-28T09:26:22Z" finished-at="2014-07-28T09:26:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sb.wd.test.GoToAvanticaPageCopyrightTestCase -->
+      <class name="sb.wd.test.SearchSectionTestCase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:sb.wd.test.SearchSectionTestCase@1350a3dc]" name="setUp" is-config="true" duration-ms="6090" started-at="2014-07-28T09:26:28Z" finished-at="2014-07-28T09:26:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testSearchSectionTestCase()[pri:0, instance:sb.wd.test.SearchSectionTestCase@1350a3dc]" name="testSearchSectionTestCase" duration-ms="1758" started-at="2014-07-28T09:26:34Z" finished-at="2014-07-28T09:26:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSearchSectionTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:sb.wd.test.SearchSectionTestCase@1350a3dc]" name="tearDown" is-config="true" duration-ms="207" started-at="2014-07-28T09:26:36Z" finished-at="2014-07-28T09:26:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- sb.wd.test.SearchSectionTestCase -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

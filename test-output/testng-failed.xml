@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="sb.wd.test.NavigateAllTabsTestCase">
+      <class name="sb.wd.test.NavigateFooterLinksTestCase">
         <methods>
-          <include name="tearDown"/>
-          <include name="testNavigateAllTabs" invocation-numbers="0"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="testNavigateFooterLinksTestCase" invocation-numbers="0"/>
         </methods>
-      </class> <!-- sb.wd.test.NavigateAllTabsTestCase -->
+      </class> <!-- sb.wd.test.NavigateFooterLinksTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
