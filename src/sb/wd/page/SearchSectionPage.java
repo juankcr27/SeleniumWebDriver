@@ -4,33 +4,41 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class SearchSectionPage extends BasePage{
 
-	@FindBy(id="ctl00_SecondBar_CommonSearchTextBox")
-	private WebElement input;
+	@FindBy(id="ctl00_Main_CategoryDropDown_CategoryList")
+	private WebElement selectCateg;
 	
-	@FindBy(id="ctl00_SecondBar_CommonSearchButton")
-	private WebElement btn;
+	@FindBy(id="ctl00_Main_SearchButton")
+	private WebElement doSearchBtn;
 	
 	public SearchSectionPage(WebDriver driver){
 		super(driver);
 	}
 	
-	private SearchSectionPage  typeData(String data) {
-		input.sendKeys(data);
+	private SearchSectionPage selectData(String data) {
+		new Select(selectCateg).selectByVisibleText(data);
 		return this;
 	}
-	
-	private AdvancedSearchPage submit() {
-		btn.click();
-		return PageFactory.initElements(driver, AdvancedSearchPage.class);
+
+	private SearchSectionPage searchSubmit() {
+		doSearchBtn.click();
+		return PageFactory.initElements(driver, SearchSectionPage.class);
 	}
 	
-	public AdvancedSearchPage search(String data) {
-		this.typeData(data);		
-		return this.submit(); 
+	public SearchSectionPage doSearch(String data) {
+		this.selectData(data);		
+		return this.searchSubmit(); 
 	}
 	
+	public boolean isSearchPage(){
+		if(driver.getTitle().equals("Search")){
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
