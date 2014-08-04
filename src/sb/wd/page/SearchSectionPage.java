@@ -34,11 +34,27 @@ public class SearchSectionPage extends BasePage{
 		return this.searchSubmit(); 
 	}
 	
+	public HomePage goBackToHome(){
+		driver.navigate().back();
+		return PageFactory.initElements(driver, HomePage.class);
+	}
+	
 	public boolean isSearchPage(){
 		if(driver.getTitle().equals("Search")){
 			return true;
 		}else{
 			return false;
 		}
+	}
+	
+	public boolean isSelectedOption(String option){
+		String selectedOption = new Select(selectCateg).getFirstSelectedOption().getText();
+		
+		if(selectedOption.equals(option)){
+			return true;
+		}else{
+			return false;
+		}
+		
 	}
 }
