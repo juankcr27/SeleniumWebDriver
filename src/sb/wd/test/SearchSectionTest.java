@@ -10,7 +10,7 @@ import sb.wd.page.BaseTest;
 import sb.wd.page.HomePage;
 import sb.wd.page.SearchSectionPage;
 
-public class SearchSectionTestCase extends BaseTest{
+public class SearchSectionTest extends BaseTest{
 	
 	private HomePage homePage;
 	private SearchSectionPage searchPage;
