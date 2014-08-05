@@ -57,13 +57,38 @@ public class HomePage extends BasePage {
 	 * Login Section 
 	 */	
 	@FindBy(id="ctl00_LoginView_LoginLink")
-	public WebElement loginLink;
+	private WebElement loginLink;
 	
+	/**
+	 * Tabs Section 
+	 */	
+	@FindBy(id="ctl00_TopMenuRepeater_ctl01_MenuLink")
+	private WebElement postAnAdLink;
+	
+	@FindBy(id="ctl00_TopMenuRepeater_ctl02_MenuLink")
+	private WebElement myAdsProfileLink;
+	
+	/**
+	 * Footers Section 
+	 */	
+	@FindBy(xpath="(//a[@class='ctl00_FooterMenu_1'])[2]")
+	private WebElement postAnAdFooterLink;
+	
+	@FindBy(xpath="(//a[@class='ctl00_FooterMenu_1'])[3]")
+	private WebElement myAdsProfileFooterLink;
 	
 	/** * * * * * * * * * * * * * * * * */
 	
 	public HomePage(WebDriver driver){
 		super(driver);
+	}
+	
+	public boolean isHomePage(){
+		if(driver.getTitle().equals("Welcome")){
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	/**
@@ -118,6 +143,32 @@ public class HomePage extends BasePage {
 	public LoginPage goLogin() {
 		loginLink.click();
 		return PageFactory.initElements(driver, LoginPage.class);
+	}
+	
+	/**
+	 * Tabs Section 
+	 */
+	public PostAnAdPage goPostAnAddPage() {
+		postAnAdLink.click();
+		return PageFactory.initElements(driver, PostAnAdPage.class);
+	}
+	
+	public MyAdsAndProfilePage goMyAdsProfilePage() {
+		myAdsProfileLink.click();
+		return PageFactory.initElements(driver, MyAdsAndProfilePage.class);
+	}
+	
+	/**
+	 * Footers Section 
+	 */	
+	public PostAnAdPage goFooterPostAnAddPage() {
+		postAnAdFooterLink.click();
+		return PageFactory.initElements(driver, PostAnAdPage.class);
+	}
+	
+	public MyAdsAndProfilePage goFooterMyAdsProfilePage() {
+		myAdsProfileFooterLink.click();
+		return PageFactory.initElements(driver, MyAdsAndProfilePage.class);
 	}
 		
 }

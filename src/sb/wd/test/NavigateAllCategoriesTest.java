@@ -1,7 +1,5 @@
 package sb.wd.test;
 
-import static org.testng.AssertJUnit.assertTrue;
-
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,36 +25,37 @@ public class NavigateAllCategoriesTest extends BaseTest{
 	public void testNavigateAllCategoriesTestCase() throws Exception {
 		
 		searchPage = homePage.goCategory(homePage.antAndCollectCategLink);
-		assertTrue(searchPage.isSelectedOption("Antiques & Collectibles"));
+		m_assert.assertTrue(searchPage.isSelectedOption("Antiques & Collectibles"));
 		homePage = searchPage.goBackToHome();
 	
 		searchPage = homePage.goCategory(homePage.gardenCategLink);
-		assertTrue(searchPage.isSelectedOption("Garden"));
+		m_assert.assertTrue(searchPage.isSelectedOption("Garden"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.artAndCraftsCategLink);
-		assertTrue(searchPage.isSelectedOption("Arts & Crafts"));
+		m_assert.assertTrue(searchPage.isSelectedOption("Arts & Crafts"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.personalCategLink);
-		assertTrue(searchPage.isSelectedOption("-- Personal"));
+		m_assert.assertTrue(searchPage.isSelectedOption("-- Personal"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.homeCategLink);
-		assertTrue(searchPage.isSelectedOption("Home"));
+		m_assert.assertTrue(searchPage.isSelectedOption("Home"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.autoCategLink);
-		assertTrue(searchPage.isSelectedOption("Auto"));
+		m_assert.assertTrue(searchPage.isSelectedOption("Auto"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.musicCategLink);
-		assertTrue(searchPage.isSelectedOption("Music"));
+		m_assert.assertTrue(searchPage.isSelectedOption("Music"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.electCategLink);
-		assertTrue(searchPage.isSelectedOption("Electronics"));				
-	    
+		m_assert.assertTrue(searchPage.isSelectedOption("Electronics"));
+		
+		m_assert.assertAll();
 	}
 	
 	@AfterMethod
