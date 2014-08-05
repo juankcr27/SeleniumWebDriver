@@ -15,14 +15,14 @@ public class NavigateAllCategoriesTest extends BaseTest{
 	private SearchSectionPage searchPage;
 	
 	@BeforeMethod
-	public void setUp() throws Exception {
+	public void setUp() {
 		settingsUp();
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		homePage.open(baseUrl);
 	}
 	
 	@Test
-	public void testNavigateAllCategoriesTestCase() throws Exception {
+	public void testNavigateAllCategoriesTestCase(){
 		
 		searchPage = homePage.goCategory(homePage.antAndCollectCategLink);
 		m_assert.assertTrue(searchPage.isSelectedOption("Antiques & Collectibles"));
@@ -59,7 +59,7 @@ public class NavigateAllCategoriesTest extends BaseTest{
 	}
 	
 	@AfterMethod
-	public void tearDown() throws Exception {
+	public void tearDown(){
 		settingsDown();	
 	}
 }

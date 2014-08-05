@@ -24,14 +24,14 @@ public class NavigateAllTabsTest extends BaseTest {
 	private int iTestCaseRow;
 
 	@BeforeMethod
-	public void setUp() throws Exception {
+	public void setUp(){
 		settingsUp();
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		homePage.open(baseUrl);
 	}
 
 	@Test(dataProvider = "Authentication")
-	public void testNavigateAllTabs(String userName, String password) throws Exception {
+	public void testNavigateAllTabs(String userName, String password){
 	  		
 		loginPage = homePage.goLogin();
 		homePage = loginPage.login(userName, password);
@@ -47,7 +47,7 @@ public class NavigateAllTabsTest extends BaseTest {
 	}
 
 	@AfterMethod
-	public void tearDown() throws Exception {
+	public void tearDown(){
 		settingsDown();		
 	}
   

@@ -17,20 +17,20 @@ public class WhatsNewSelectingTest extends BaseTest {
 	private SearchSectionPage searchPage;
 
 	@BeforeMethod
-	public void setUp() throws Exception {
+	public void setUp(){
 		settingsUp();
 		homePage = PageFactory.initElements(driver, HomePage.class);
 		homePage.open(baseUrl);
 	}
 
 	@Test
-	public void testWhatsNewSelectingTestCase() throws Exception {
+	public void testWhatsNewSelectingTestCase(){
 		searchPage = homePage.goWhatsNew("in the last 48 hours");				
 		assertTrue(searchPage.isSearchPage());				
 	}
 
 	@AfterMethod
-	public void tearDown() throws Exception {
+	public void tearDown(){
 		settingsDown();			
 	}
   

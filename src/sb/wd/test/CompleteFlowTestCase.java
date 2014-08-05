@@ -15,8 +15,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import sb.wd.data.ExcelUtils;
+import sb.wd.page.BaseTest;
 
-public class CompleteFlowTestCase {
+public class CompleteFlowTestCase extends BaseTest{
 	private WebDriver driver;
 	private String baseUrl;  
 	private StringBuffer verificationErrors = new StringBuffer();
