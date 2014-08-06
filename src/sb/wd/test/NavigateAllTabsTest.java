@@ -54,16 +54,15 @@ public class NavigateAllTabsTest extends BaseTest {
 	@DataProvider
 	public Object[][] Authentication() throws Exception{
 		// Setting up the Test Data Excel file
-        ExcelUtils.setExcelFile("test1.xlsx","Sheet1");
+        ExcelUtils.setExcelFile("test.xlsx","Sheet1");
         sTestCaseName = this.toString();
         // From above method we get long test case name including package and class name etc.
         // The below method will refine your test case name, exactly the name use have used
         sTestCaseName = ExcelUtils.getTestCaseName(this.toString());
         // Fetching the Test Case row number from the Test Data Sheet
         // Getting the Test Case name to get the TestCase row from the Test Data Excel sheet
-        iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName,0);
-        //iTestCaseRow = 2;
-        Object[][] testObjArray = ExcelUtils.getTableArray("test1.xlsx","Sheet1",iTestCaseRow);
+        iTestCaseRow = ExcelUtils.getRowContains(sTestCaseName,0);        
+        Object[][] testObjArray = ExcelUtils.getTableArray("test.xlsx","Sheet1",iTestCaseRow);
         return (testObjArray);
 	}
   
