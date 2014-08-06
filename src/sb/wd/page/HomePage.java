@@ -77,6 +77,18 @@ public class HomePage extends BasePage {
 	@FindBy(xpath="(//a[@class='ctl00_FooterMenu_1'])[3]")
 	private WebElement myAdsProfileFooterLink;
 	
+	/**
+	 * Avantica Copyright Section 
+	 */	
+	@FindBy(id="ctl00_Avantica")
+	private WebElement avanticaLink;
+	
+	/**
+	 * Browse All Categories Section 
+	 */	
+	@FindBy(id="ctl00_BrowseAllLink")
+	private WebElement allCategoriesLink;
+	
 	/** * * * * * * * * * * * * * * * * */
 	
 	public HomePage(WebDriver driver){
@@ -169,6 +181,28 @@ public class HomePage extends BasePage {
 	public MyAdsAndProfilePage goFooterMyAdsProfilePage() {
 		myAdsProfileFooterLink.click();
 		return PageFactory.initElements(driver, MyAdsAndProfilePage.class);
+	}
+	
+	/**
+	 * Avantica Copyright Section 
+	 */	
+	public AvanticaPage goAvanticaPage() {
+				
+		avanticaLink.click();
+		
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle); // switch focus of WebDriver to the next found window handle
+		}
+		
+		return PageFactory.initElements(driver, AvanticaPage.class);
+	}
+	
+	/**
+	 * Browse All Categories Section 
+	 */		
+	public SearchSectionPage goAllCategoriesPage() {
+		allCategoriesLink.click();
+		return PageFactory.initElements(driver, SearchSectionPage.class);
 	}
 		
 }

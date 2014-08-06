@@ -9,14 +9,24 @@ import org.openqa.selenium.support.ui.Select;
 
 public class SearchSectionPage extends BasePage{
 
+	@FindBy(id="ctl00_Main_SearchTermTextBox")
+	private WebElement inputCateg;
+	
 	@FindBy(id="ctl00_Main_CategoryDropDown_CategoryList")
 	private WebElement selectCateg;
 	
 	@FindBy(id="ctl00_Main_SearchButton")
 	private WebElement doSearchBtn;
 	
+	
 	public SearchSectionPage(WebDriver driver){
 		super(driver);
+	}
+	
+	private SearchSectionPage inputData(String data) {
+		inputCateg.clear();
+		inputCateg.sendKeys(data);
+		return this;
 	}
 	
 	private SearchSectionPage selectData(String data) {
@@ -57,4 +67,12 @@ public class SearchSectionPage extends BasePage{
 		}
 		
 	}
+	
+	public SearchSectionPage doInputSearch(String input, String select) {
+		this.inputData(input);
+		this.selectData(select);		
+		return this.searchSubmit(); 
+	}
+	
+	
 }
