@@ -11,10 +11,18 @@ import org.testng.annotations.Test;
 import sb.wd.data.ExcelUtils;
 import sb.wd.page.BaseTest;
 import sb.wd.page.HomePage;
+import sb.wd.page.LoginPage;
+import sb.wd.page.MyAdsAndProfilePage;
+import sb.wd.page.PostAnAdPage;
+import sb.wd.page.SearchSectionPage;
 
 public class CompleteFlowTestCase extends BaseTest{
 	
 	private HomePage homePage;
+	private LoginPage loginPage;
+	private PostAnAdPage postAnAdPage;
+	private MyAdsAndProfilePage myAdsProfilePage;
+	private SearchSectionPage searchPage;
 	
 	private String bodyText;
 	private boolean elementPresent;
@@ -31,6 +39,22 @@ public class CompleteFlowTestCase extends BaseTest{
 	@Test(dataProvider = "Authentication")
 	public void testCompleteFlowTestCase(String userName, String password) throws Exception {
 		//driver.get(baseUrl + "/QATestWeb/");
+		
+		loginPage = homePage.goLogin();
+		homePage = loginPage.login(userName, password);
+		m_assert.assertTrue(homePage.isTextPresent("Welcome, SpiritBreakerTeam"));
+		postAnAdPage = homePage.goPostAnAddPage();
+		m_assert.assertTrue(postAnAdPage.isPostAnAdPage());
+		homePage = postAnAdPage.goHome();
+		myAdsProfilePage = homePage.goMyAdsProfilePage();
+		m_assert.assertTrue(myAdsProfilePage.isMyAdsAndProfilePage());
+		homePage = myAdsProfilePage.goHome();
+		searchPage = homePage.goSearch("Nissan");
+		searchPage.doSearch("Auto");
+		m_assert.assertTrue(searchPage.isTextPresent("search term = \"Nissan\""));
+		
+		
+		
 		driver.findElement(By.id("ctl00_LoginView_LoginLink")).click();
 		driver.findElement(By.id("ctl00_Main_LoginConrol_UserName")).clear();
 		driver.findElement(By.id("ctl00_Main_LoginConrol_UserName")).sendKeys(userName);
@@ -39,7 +63,8 @@ public class CompleteFlowTestCase extends BaseTest{
 		driver.findElement(By.id("ctl00_Main_LoginConrol_LoginButton")).click();
 		driver.findElement(By.cssSelector("span")).click();
 		bodyText = driver.findElement(By.tagName("body")).getText();
-		m_assert.assertTrue(bodyText.contains("Welcome, SpiritBreakerTeam"));    
+		m_assert.assertTrue(bodyText.contains("Welcome, SpiritBreakerTeam")); 
+		
 		driver.findElement(By.id("ctl00_Main_CategoryBrowser_TopCategoryList_ctl02_TopCategoryButton")).click();
 		driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).clear();
 		driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).sendKeys("Nissan");    
