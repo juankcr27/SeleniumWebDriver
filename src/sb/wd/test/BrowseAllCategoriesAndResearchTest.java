@@ -1,50 +1,39 @@
 package sb.wd.test;
 
-import static org.testng.AssertJUnit.assertTrue;
-
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class BrowseAllCategoriesAndResearchTestCase {
-	private WebDriver driver;
-	private String baseUrl;  
-	private StringBuffer verificationErrors = new StringBuffer();
-	private String bodyText;
+import sb.wd.page.BaseTest;
+import sb.wd.page.HomePage;
+import sb.wd.page.SearchSectionPage;
+
+public class BrowseAllCategoriesAndResearchTest extends BaseTest{
+	
+	private HomePage homePage;
+	private SearchSectionPage searchPage;	
 
 	@BeforeMethod
-	public void setUp() throws Exception {
-		driver = new FirefoxDriver();
-		baseUrl = "http://qatraining.avantica.avanticatec.net/";
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	public void setUp(){
+		settingsUp();
+		homePage = PageFactory.initElements(driver, HomePage.class);
+		homePage.open(baseUrl);
 	}
 
 	@Test
-	public void testBrowseAllCategoriesAndResearchTestCase() throws Exception {
-		driver.get(baseUrl + "/QATestWeb/");
-		driver.findElement(By.id("ctl00_BrowseAllLink")).click();
-		driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).clear();
-		driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).sendKeys("Rock");
-		new Select(driver.findElement(By.id("ctl00_Main_CategoryDropDown_CategoryList"))).selectByVisibleText("Music");
-		driver.findElement(By.id("ctl00_Main_SearchButton")).click();
-		bodyText = driver.findElement(By.tagName("body")).getText();
-		assertTrue(bodyText.contains("search term = \"Rock\""));    
+	public void testBrowseAllCategoriesAndResearchTestCase(){
+		
+		searchPage = homePage.goAllCategoriesPage();
+		searchPage.doInputSearch("Rock", "Music");
+		m_assert.assertTrue(searchPage.isTextPresent("search term = \"Rock\""));
+		m_assert.assertAll();
+		
 	}
 
 	@AfterMethod
-	public void tearDown() throws Exception {
-		driver.quit();
-		String verificationErrorString = verificationErrors.toString();
-		if (!"".equals(verificationErrorString)) {
-			Assert.fail(verificationErrorString);
-		}
+	public void tearDown(){
+		settingsDown();	
 	}
   
 }
