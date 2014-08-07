@@ -53,7 +53,7 @@ public class NavigateAllTabsTest extends BaseTest {
 	@DataProvider
 	public Object[][] Authentication(Method testMethod) throws Exception{
 		ExcelUtils read = new ExcelUtils();
-		return read.getData("Book1.xlsx", testMethod.getName());
+		return read.getData("test.xlsx", testMethod.getName());
 	}
   
 }
