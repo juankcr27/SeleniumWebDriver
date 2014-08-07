@@ -23,7 +23,7 @@ public class SearchSectionTest extends BaseTest{
 	}
 
 	@Test
-	public void testSearchSectionTestCase(){	  		
+	public void testSearchSection(){	  		
 		searchPage = homePage.goSearch("Arts");		
 		searchPage.doSearch("Arts & Crafts");
 		assertTrue(searchPage.isSearchPage());		

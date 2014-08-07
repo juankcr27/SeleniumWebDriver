@@ -23,7 +23,7 @@ public class GoToAvanticaPageCopyrightTest extends BaseTest{
 	}
 
 	@Test
-	public void testGoToAvanticaPageCopyrightTestCase(){
+	public void testGoToAvanticaPageCopyright(){
 		
 		avanticaPage = homePage.goAvanticaPage();
 		mAssert.assertTrue(avanticaPage.isAvanticaPage());

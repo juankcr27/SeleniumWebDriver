@@ -24,7 +24,7 @@ public class WhatsNewSelectingTest extends BaseTest {
 	}
 
 	@Test
-	public void testWhatsNewSelectingTestCase(){
+	public void testWhatsNewSelecting(){
 		searchPage = homePage.goWhatsNew("in the last 48 hours");				
 		assertTrue(searchPage.isSearchPage());				
 	}

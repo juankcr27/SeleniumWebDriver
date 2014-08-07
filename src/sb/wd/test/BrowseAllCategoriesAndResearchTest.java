@@ -22,7 +22,7 @@ public class BrowseAllCategoriesAndResearchTest extends BaseTest{
 	}
 
 	@Test
-	public void testBrowseAllCategoriesAndResearchTestCase(){
+	public void testBrowseAllCategoriesAndResearch(){
 		
 		searchPage = homePage.goAllCategoriesPage();
 		searchPage.doInputSearch("Rock", "Music");

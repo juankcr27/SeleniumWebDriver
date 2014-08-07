@@ -22,7 +22,7 @@ public class NavigateAllCategoriesTest extends BaseTest{
 	}
 	
 	@Test
-	public void testNavigateAllCategoriesTestCase(){
+	public void testNavigateAllCategories(){
 		
 		searchPage = homePage.goCategory(homePage.antAndCollectCategLink);
 		mAssert.assertTrue(searchPage.isSelectedOption("Antiques & Collectibles"));
