@@ -16,9 +16,11 @@ public class SearchSectionPage extends BasePage{
 	private WebElement selectCateg;
 	
 	@FindBy(id="ctl00_Main_SearchButton")
-	private WebElement doSearchBtn;
+	private WebElement doSearchBtn;		
 	
-	
+	@FindBy(id="ctl00_TopMenuRepeater_ctl00_MenuLink")
+	private WebElement goHomeLink;		
+		
 	public SearchSectionPage(WebDriver driver){
 		super(driver);
 	}
@@ -48,6 +50,11 @@ public class SearchSectionPage extends BasePage{
 		driver.navigate().back();
 		return PageFactory.initElements(driver, HomePage.class);
 	}
+	
+	public HomePage goHome(){
+		goHomeLink.click();
+		return PageFactory.initElements(driver, HomePage.class);
+	}	
 	
 	public boolean isSearchPage(){
 		if(driver.getTitle().equals("Search")){

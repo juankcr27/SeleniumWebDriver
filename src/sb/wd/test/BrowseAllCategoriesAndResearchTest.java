@@ -26,8 +26,8 @@ public class BrowseAllCategoriesAndResearchTest extends BaseTest{
 		
 		searchPage = homePage.goAllCategoriesPage();
 		searchPage.doInputSearch("Rock", "Music");
-		m_assert.assertTrue(searchPage.isTextPresent("search term = \"Rock\""));
-		m_assert.assertAll();
+		mAssert.assertTrue(searchPage.isTextPresent("search term = \"Rock\""));
+		mAssert.assertAll();
 		
 	}
 

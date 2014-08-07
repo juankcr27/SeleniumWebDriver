@@ -26,8 +26,8 @@ public class GoToAvanticaPageCopyrightTest extends BaseTest{
 	public void testGoToAvanticaPageCopyrightTestCase(){
 		
 		avanticaPage = homePage.goAvanticaPage();
-		m_assert.assertTrue(avanticaPage.isAvanticaPage());
-		m_assert.assertAll();
+		mAssert.assertTrue(avanticaPage.isAvanticaPage());
+		mAssert.assertAll();
 		
 	}
 

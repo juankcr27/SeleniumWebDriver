@@ -1,8 +1,6 @@
 package sb.wd.test;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -22,10 +20,8 @@ public class CompleteFlowTestCase extends BaseTest{
 	private LoginPage loginPage;
 	private PostAnAdPage postAnAdPage;
 	private MyAdsAndProfilePage myAdsProfilePage;
-	private SearchSectionPage searchPage;
+	private SearchSectionPage searchPage;	
 	
-	private String bodyText;
-	private boolean elementPresent;
 	private String sTestCaseName;
 	private int iTestCaseRow;
 
@@ -37,56 +33,24 @@ public class CompleteFlowTestCase extends BaseTest{
 	}
 
 	@Test(dataProvider = "Authentication")
-	public void testCompleteFlowTestCase(String userName, String password) throws Exception {
-		//driver.get(baseUrl + "/QATestWeb/");
+	public void testCompleteFlowTestCase(String userName, String password) throws Exception {		
 		
 		loginPage = homePage.goLogin();
 		homePage = loginPage.login(userName, password);
-		m_assert.assertTrue(homePage.isTextPresent("Welcome, SpiritBreakerTeam"));
+		mAssert.assertTrue(homePage.isTextPresent("Welcome, SpiritBreakerTeam"));
 		postAnAdPage = homePage.goPostAnAddPage();
-		m_assert.assertTrue(postAnAdPage.isPostAnAdPage());
+		mAssert.assertTrue(postAnAdPage.isPostAnAdPage());
 		homePage = postAnAdPage.goHome();
 		myAdsProfilePage = homePage.goMyAdsProfilePage();
-		m_assert.assertTrue(myAdsProfilePage.isMyAdsAndProfilePage());
+		mAssert.assertTrue(myAdsProfilePage.isMyAdsAndProfilePage());
 		homePage = myAdsProfilePage.goHome();
 		searchPage = homePage.goSearch("Nissan");
 		searchPage.doSearch("Auto");
-		m_assert.assertTrue(searchPage.isTextPresent("search term = \"Nissan\""));
+		mAssert.assertTrue(searchPage.isTextPresent("search term = \"Nissan\""));
+		homePage = searchPage.goHome();
+		homePage.doLogOut();
+		mAssert.assertTrue(homePage.equals(homePage.loginLink));		
 		
-		
-		
-		driver.findElement(By.id("ctl00_LoginView_LoginLink")).click();
-		driver.findElement(By.id("ctl00_Main_LoginConrol_UserName")).clear();
-		driver.findElement(By.id("ctl00_Main_LoginConrol_UserName")).sendKeys(userName);
-		driver.findElement(By.id("ctl00_Main_LoginConrol_Password")).clear();
-		driver.findElement(By.id("ctl00_Main_LoginConrol_Password")).sendKeys(password);
-		driver.findElement(By.id("ctl00_Main_LoginConrol_LoginButton")).click();
-		driver.findElement(By.cssSelector("span")).click();
-		bodyText = driver.findElement(By.tagName("body")).getText();
-		m_assert.assertTrue(bodyText.contains("Welcome, SpiritBreakerTeam")); 
-		
-		driver.findElement(By.id("ctl00_Main_CategoryBrowser_TopCategoryList_ctl02_TopCategoryButton")).click();
-		driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).clear();
-		driver.findElement(By.id("ctl00_Main_SearchTermTextBox")).sendKeys("Nissan");    
-		new Select(driver.findElement(By.id("ctl00_Main_CategoryDropDown_CategoryList"))).selectByVisibleText("Auto");
-		driver.findElement(By.id("ctl00_Main_SearchButton")).click();
-		bodyText = driver.findElement(By.tagName("body")).getText();
-		m_assert.assertTrue(bodyText.contains("search term = \"Nissan\""));    
-		driver.findElement(By.cssSelector("#ctl00_TopMenuRepeater_ctl01_MenuLink > span")).click();
-		driver.findElement(By.id("ctl00_Main_PostAdWizard_SubcategoriesList_ctl06_CategoryButton")).click();
-		bodyText = driver.findElement(By.tagName("body")).getText();
-		m_assert.assertTrue(bodyText.contains("Post an Ad: Details"));    
-		driver.findElement(By.cssSelector("#ctl00_TopMenuRepeater_ctl02_MenuLink > span")).click();
-		driver.findElement(By.id("ctl00_Main_CommonSearchTextBox")).clear();
-		driver.findElement(By.id("ctl00_Main_CommonSearchTextBox")).sendKeys("Rock");
-		new Select(driver.findElement(By.id("ctl00_Main_CommonCategoryDropDown_CategoryList"))).selectByVisibleText("Music");
-		driver.findElement(By.id("ctl00_Main_SearchButton")).click();
-		bodyText = driver.findElement(By.tagName("body")).getText();
-		m_assert.assertTrue(bodyText.contains("search term = \"Rock\""));    
-		driver.findElement(By.id("ctl00_LoginView_MemberLoginStatus")).click();
-		elementPresent = driver.findElement(By.id("ctl00_LoginView_LoginLink")).isDisplayed();
-		m_assert.assertTrue(elementPresent);
-		m_assert.assertAll();
 	}
 
 	@AfterMethod

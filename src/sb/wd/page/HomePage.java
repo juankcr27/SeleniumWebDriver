@@ -57,7 +57,7 @@ public class HomePage extends BasePage {
 	 * Login Section 
 	 */	
 	@FindBy(id="ctl00_LoginView_LoginLink")
-	private WebElement loginLink;
+	public WebElement loginLink;
 	
 	/**
 	 * Tabs Section 
@@ -88,6 +88,12 @@ public class HomePage extends BasePage {
 	 */	
 	@FindBy(id="ctl00_BrowseAllLink")
 	private WebElement allCategoriesLink;
+	
+	/**
+	 * Logout Section 
+	 */	
+	@FindBy(id="ctl00_LoginView_MemberLoginStatus")
+	private WebElement logoutLink;
 	
 	/** * * * * * * * * * * * * * * * * */
 	
@@ -203,6 +209,14 @@ public class HomePage extends BasePage {
 	public SearchSectionPage goAllCategoriesPage() {
 		allCategoriesLink.click();
 		return PageFactory.initElements(driver, SearchSectionPage.class);
+	}
+	
+	/**
+	 * Logout Section 
+	 */	
+	public HomePage doLogOut() {
+		logoutLink.click();
+		return PageFactory.initElements(driver, HomePage.class);
 	}
 		
 }

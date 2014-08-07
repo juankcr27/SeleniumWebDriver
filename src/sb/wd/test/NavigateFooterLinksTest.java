@@ -36,14 +36,14 @@ public class NavigateFooterLinksTest extends BaseTest{
 		loginPage = homePage.goLogin();
 		homePage = loginPage.login(userName, password);
 		postAnAdPage = homePage.goFooterPostAnAddPage();
-		m_assert.assertTrue(postAnAdPage.isPostAnAdPage());
+		mAssert.assertTrue(postAnAdPage.isPostAnAdPage());
 		homePage = postAnAdPage.goFooterHome();
-		m_assert.assertTrue(homePage.isHomePage());
+		mAssert.assertTrue(homePage.isHomePage());
 		myAdsProfilePage = homePage.goFooterMyAdsProfilePage();
-		m_assert.assertTrue(myAdsProfilePage.isMyAdsAndProfilePage());
+		mAssert.assertTrue(myAdsProfilePage.isMyAdsAndProfilePage());
 		homePage = myAdsProfilePage.goFooterHome();
-		m_assert.assertTrue(homePage.isHomePage());	
-		m_assert.assertAll();
+		mAssert.assertTrue(homePage.isHomePage());	
+		mAssert.assertAll();
 		
 	}
 

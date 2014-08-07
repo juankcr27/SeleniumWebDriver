@@ -25,37 +25,37 @@ public class NavigateAllCategoriesTest extends BaseTest{
 	public void testNavigateAllCategoriesTestCase(){
 		
 		searchPage = homePage.goCategory(homePage.antAndCollectCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("Antiques & Collectibles"));
+		mAssert.assertTrue(searchPage.isSelectedOption("Antiques & Collectibles"));
 		homePage = searchPage.goBackToHome();
 	
 		searchPage = homePage.goCategory(homePage.gardenCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("Garden"));
+		mAssert.assertTrue(searchPage.isSelectedOption("Garden"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.artAndCraftsCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("Arts & Crafts"));
+		mAssert.assertTrue(searchPage.isSelectedOption("Arts & Crafts"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.personalCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("-- Personal"));
+		mAssert.assertTrue(searchPage.isSelectedOption("-- Personal"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.homeCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("Home"));
+		mAssert.assertTrue(searchPage.isSelectedOption("Home"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.autoCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("Auto"));
+		mAssert.assertTrue(searchPage.isSelectedOption("Auto"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.musicCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("Music"));
+		mAssert.assertTrue(searchPage.isSelectedOption("Music"));
 		homePage = searchPage.goBackToHome();
 		
 		searchPage = homePage.goCategory(homePage.electCategLink);
-		m_assert.assertTrue(searchPage.isSelectedOption("Electronics"));
+		mAssert.assertTrue(searchPage.isSelectedOption("Electronics"));
 		
-		m_assert.assertAll();
+		mAssert.assertAll();
 	}
 	
 	@AfterMethod

@@ -36,14 +36,14 @@ public class NavigateAllTabsTest extends BaseTest {
 		loginPage = homePage.goLogin();
 		homePage = loginPage.login(userName, password);
 		postAnAdPage = homePage.goPostAnAddPage();
-		m_assert.assertTrue(postAnAdPage.isPostAnAdPage());
+		mAssert.assertTrue(postAnAdPage.isPostAnAdPage());
 		homePage = postAnAdPage.goHome();
-		m_assert.assertTrue(homePage.isHomePage());
+		mAssert.assertTrue(homePage.isHomePage());
 		myAdsProfilePage = homePage.goMyAdsProfilePage();
-		m_assert.assertTrue(myAdsProfilePage.isMyAdsAndProfilePage());
+		mAssert.assertTrue(myAdsProfilePage.isMyAdsAndProfilePage());
 		homePage = myAdsProfilePage.goHome();
-		m_assert.assertTrue(homePage.isHomePage());	
-		m_assert.assertAll();
+		mAssert.assertTrue(homePage.isHomePage());	
+		mAssert.assertAll();
 	}
 
 	@AfterMethod
